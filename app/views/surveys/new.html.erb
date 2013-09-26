@@ -1,0 +1,20 @@
+<%= form_for @survey do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.fields_for :questions do |question| %>
+    <%= question.label :title %>
+    <%= question.text_field :title %>
+
+    <% 3.times do %>
+      <%= question.fields_for :answers do |answer| %>
+        <%= answer.label :content %>
+        <%= answer.text_field :content %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<%= f.submit %>
+<% end %>
+
+
